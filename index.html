@@ -2,122 +2,165 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>ScamOrSafe – Check Before You Lose Money</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ScamOrSafe</title>
+  <meta name="description" content="ScamOrSafe helps you check websites and Telegram names for scam indicators.">
+  <meta name="keywords" content="scam check, website scam, telegram scam, crypto scam">
+  <meta name="author" content="ScamOrSafe">
 
   <style>
     * {
       box-sizing: border-box;
+      font-family: Arial, sans-serif;
     }
 
     body {
       margin: 0;
-      height: 100vh;
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, #020617, #020617);
+      min-height: 100vh;
+      background: linear-gradient(180deg, #0b1020, #050814);
       display: flex;
-      align-items: center;
       justify-content: center;
-      color: white;
+      align-items: center;
+      color: #fff;
     }
 
-    .container {
-      background: #020617;
+    .card {
+      background: #0f172a;
       padding: 30px;
+      border-radius: 16px;
       width: 90%;
       max-width: 420px;
-      border-radius: 20px;
-      box-shadow: 0 0 40px rgba(0,0,0,0.6);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
       text-align: center;
     }
 
     h1 {
-      margin-bottom: 5px;
-      font-size: 32px;
+      margin-bottom: 10px;
+      font-size: 28px;
     }
 
     p {
-      margin-top: 0;
-      opacity: 0.8;
+      color: #cbd5e1;
+      margin-bottom: 20px;
     }
 
     input {
       width: 100%;
-      padding: 15px;
-      margin-top: 15px;
+      padding: 14px;
       border-radius: 10px;
       border: none;
+      outline: none;
       font-size: 16px;
+      margin-bottom: 15px;
     }
 
     button {
       width: 100%;
-      margin-top: 15px;
-      padding: 15px;
+      padding: 14px;
       border-radius: 10px;
       border: none;
-      background: #22c55e;
-      color: #052e16;
       font-size: 18px;
+      font-weight: bold;
+      background: #22c55e;
+      color: #03210f;
       cursor: pointer;
     }
 
     button:hover {
-      opacity: 0.9;
+      background: #16a34a;
     }
 
-    #result {
-      margin-top: 15px;
-      font-size: 16px;
+    .result {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 10px;
+      display: none;
       font-weight: bold;
+    }
+
+    .safe {
+      background: #052e16;
+      color: #4ade80;
+    }
+
+    .warning {
+      background: #3f1d0b;
+      color: #fb923c;
+    }
+
+    .danger {
+      background: #450a0a;
+      color: #f87171;
+    }
+
+    .score {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #e5e7eb;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="container">
+  <div class="card">
     <h1>ScamOrSafe 🔍</h1>
     <p>Check a website or Telegram name</p>
 
     <input id="input" placeholder="example.com or @telegram">
+    <button onclick="checkScam()">Check now</button>
 
-    <button onclick="check()">Check now</button>
-
-    <div id="result"></div>
+    <div id="result" class="result"></div>
+    <div id="score" class="score"></div>
   </div>
 
-  <script>
-    function check() {
-      const input = document.getElementById("input").value.trim().toLowerCase();
-      const result = document.getElementById("result");
+<script>
+function checkScam() {
+  const input = document.getElementById("input").value.toLowerCase();
+  const result = document.getElementById("result");
+  const score = document.getElementById("score");
 
-      if (!input) {
-        result.style.color = "orange";
-        result.innerHTML = "❌ Please enter something";
-        return;
-      }
+  if (!input) {
+    result.style.display = "block";
+    result.className = "result warning";
+    result.innerText = "⚠️ Please enter a website or Telegram name";
+    score.innerText = "";
+    return;
+  }
 
-      const knownScams = [
-        "freecrypto",
-        "giveaway",
-        "airdrop",
-        "elon",
-        "bonus",
-        "investment"
-      ];
+  const scamKeywords = [
+    "free", "giveaway", "airdrop", "bonus",
+    "double", "crypto", "btc", "eth",
+    "investment", "profit", "guaranteed"
+  ];
 
-      let isScam = knownScams.some(word => input.includes(word));
+  let risk = 0;
+  scamKeywords.forEach(word => {
+    if (input.includes(word)) risk += 15;
+  });
 
-      if (isScam) {
-        result.style.color = "red";
-        result.innerHTML = "⚠️ Possible scam indicators detected";
-      } else {
-        result.style.color = "#22c55e";
-        result.innerHTML = "✅ No known scam indicators";
-      }
-    }
-  </script>
+  if (input.startsWith("@")) risk += 20;
+  if (input.includes("-")) risk += 10;
+  if (input.length < 6) risk += 10;
+
+  if (risk > 100) risk = 100;
+
+  result.style.display = "block";
+
+  if (risk < 30) {
+    result.className = "result safe";
+    result.innerText = "✅ No known scam indicators";
+  } else if (risk < 60) {
+    result.className = "result warning";
+    result.innerText = "⚠️ Suspicious – be careful";
+  } else {
+    result.className = "result danger";
+    result.innerText = "🚨 High scam risk detected";
+  }
+
+  score.innerText = "Risk score: " + risk + "%";
+}
+</script>
 
 </body>
 </html>
