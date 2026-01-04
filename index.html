@@ -2,97 +2,138 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>ScamOrSafe – Check Before You Lose Money</title>
+  <title>ScamOrSafe</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #0f172a, #020617);
       font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: #fff;
-      text-align: center;
-      padding: 40px;
+      color: white;
     }
+
     .box {
-      max-width: 500px;
-      margin: auto;
-      background: #111827;
+      background: rgba(15, 23, 42, 0.9);
       padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.4);
-    }
-    input {
+      border-radius: 16px;
       width: 90%;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 28px;
+    }
+
+    p {
+      opacity: 0.85;
+    }
+
+    input {
+      width: 100%;
       padding: 12px;
-      border-radius: 6px;
-      border: none;
       margin-top: 15px;
+      border-radius: 8px;
+      border: none;
       font-size: 16px;
     }
+
     button {
+      width: 100%;
+      padding: 12px;
       margin-top: 15px;
-      padding: 12px 25px;
-      font-size: 16px;
+      border-radius: 8px;
       border: none;
-      border-radius: 6px;
+      font-size: 16px;
       background: #22c55e;
-      color: #000;
       cursor: pointer;
+      font-weight: bold;
     }
+
     button:hover {
       background: #16a34a;
     }
+
     .result {
       margin-top: 20px;
       font-size: 18px;
     }
+
     .warning {
       color: #f87171;
     }
+
     .safe {
       color: #4ade80;
     }
+
+    .note {
+      margin-top: 15px;
+      font-size: 12px;
+      opacity: 0.7;
+    }
   </style>
 </head>
+
 <body>
 
   <div class="box">
     <h1>ScamOrSafe 🔍</h1>
     <p>Check a website or Telegram channel before you lose money.</p>
 
-    <input id="input" placeholder="Enter website or Telegram name">
-    <br>
+    <input id="input" placeholder="Enter website or name">
     <button onclick="check()">Check now</button>
 
     <div class="result" id="result"></div>
-  <p style="font-size:12px; color:#94a3b8; margin-top:15px;">
-⚠️ This tool is for informational purposes only. Always verify information yourself.
-</p>
+
+    <div class="note">
+      ⚠️ This tool is for informational purposes only. Always verify information yourself.
+    </div>
+  </div>
 
   <script>
     function check() {
-      const value = document.getElementById("input").value.toLowerCase();
+      let value = document.getElementById("input").value;
       const result = document.getElementById("result");
+
+      if (!value.trim()) {
+        result.innerHTML = "⚠️ Please enter a website or name.";
+        result.className = "result warning";
+        return;
+      }
+
+      // Normalize input
+      value = value
+        .toLowerCase()
+        .replace("https://", "")
+        .replace("http://", "")
+        .replace("www.", "")
+        .split("/")[0];
 
       const knownScams = [
         "live-bets24.com",
         "guaranteed wins",
         "vip betting",
-        "sure odds"
+        "sure bets",
+        "fixed matches"
       ];
 
-      if (!value) {
-        result.innerHTML = "<span class='warning'>Please enter something.</span>";
-        return;
-      }
+      const isScam = knownScams.some(item => value.includes(item));
 
-      for (let scam of knownScams) {
-        if (value.includes(scam)) {
-          result.innerHTML = "⚠️ <span class='warning'>High risk! This looks like a scam.</span>";
-          return;
-        }
+      if (isScam) {
+        result.innerHTML = "⚠️ High risk! This looks like a scam.";
+        result.className = "result warning";
+      } else {
+        result.innerHTML = "✅ No reports yet. Be careful and do your own research.";
+        result.className = "result safe";
       }
-
-      result.innerHTML = "✅ <span class='safe'>No reports yet. Be careful and do your own research.</span>";
     }
   </script>
 
