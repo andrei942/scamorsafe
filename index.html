@@ -3,46 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <title>ScamOrSafe</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .box {
+      text-align: center;
+      background: #020617;
+      padding: 30px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 400px;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      border-radius: 8px;
+      border: none;
+    }
+    button {
+      margin-top: 15px;
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      background: #22c55e;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
 
-<h1>ScamOrSafe 🔍</h1>
-<p>Check a website or Telegram channel before you lose money.</p>
+  <div class="box">
+    <h1>ScamOrSafe 🔍</h1>
+    <p>Check a website or Telegram name</p>
 
-<input type="text" id="checkInput" placeholder="Enter website or Telegram name">
-<br><br>
-<button onclick="checkScam()">Check now</button>
+    <input id="input" placeholder="example.com or @telegram">
+    <button onclick="check()">Check now</button>
 
-<p id="result"></p>
+    <div class="result" id="result"></div>
+  </div>
 
-<hr>
+  <script>
+    function check() {
+      const v = document.getElementById("input").value.trim();
+      const r = document.getElementById("result");
 
-<ul>
-  <li><a href="crypto-giveaway-scams.html">Crypto Giveaway Scams</a></li>
-  <li><a href="telegram-betting-scams.html">Telegram Betting Scams</a></li>
-  <li><a href="privacy.html">Privacy Policy</a></li>
-  <li><a href="terms.html">Terms of Service</a></li>
-  <li><a href="contact.html">Contact</a></li>
-</ul>
+      if (!v) {
+        r.textContent = "❌ Enter something";
+        return;
+      }
 
-<script>
-function checkScam() {
-  const value = document.getElementById("checkInput").value.toLowerCase();
-  const result = document.getElementById("result");
-
-  if (!value) {
-    result.textContent = "Please enter a website or Telegram name.";
-    return;
-  }
-
-  if (value.includes("giveaway") || value.includes("bet") || value.includes("profit")) {
-    result.textContent = "⚠️ Warning: This looks like a possible scam. Be careful.";
-  } else {
-    result.textContent = "✅ No common scam signals detected. Always verify carefully.";
-  }
-}
-</script>
+      if (v.includes("scam")) {
+        r.textContent = "🚨 High risk (keyword match)";
+      } else {
+        r.textContent = "✅ No known scam indicators";
+      }
+    }
+  </script>
 
 </body>
 </html>
