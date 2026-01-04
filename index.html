@@ -1,145 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>ScamOrSafe</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ScamOrSafe – Check websites & Telegram channels</title>
+
+<meta name="description" content="Check if a website or Telegram channel is scam or safe before you lose money. Free scam checker tool.">
 
 <style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: linear-gradient(180deg, #0b1220, #020617);
-        color: #ffffff;
-        text-align: center;
-        padding: 30px 15px;
-    }
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(180deg, #020b1d, #061733);
+    color: #ffffff;
+    text-align: center;
+}
 
-    h1 {
-        font-size: 34px;
-        margin-bottom: 10px;
-    }
+.container {
+    max-width: 420px;
+    margin: auto;
+    padding: 40px 20px;
+}
 
-    p {
-        color: #cbd5e1;
-        font-size: 16px;
-        margin-bottom: 20px;
-    }
+h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
 
-    input {
-        width: 100%;
-        max-width: 420px;
-        padding: 14px;
-        border-radius: 10px;
-        border: none;
-        font-size: 16px;
-        margin-bottom: 15px;
-    }
+.subtitle {
+    color: #cfd6e4;
+    font-size: 16px;
+    margin-bottom: 25px;
+}
 
-    button {
-        width: 100%;
-        max-width: 420px;
-        padding: 14px;
-        border-radius: 10px;
-        border: none;
-        font-size: 18px;
-        font-weight: bold;
-        background: #22c55e;
-        color: #000;
-        cursor: pointer;
-    }
+input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
 
-    button:hover {
-        opacity: 0.9;
-    }
+button {
+    width: 100%;
+    padding: 15px;
+    background: #2ecc71;
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
 
-    .vpn-box {
-        margin-top: 30px;
-        font-size: 15px;
-    }
+button:hover {
+    opacity: 0.9;
+}
 
-    .vpn-btn {
-        margin-top: 10px;
-        background: #22c55e;
-        color: #000;
-    }
+.result {
+    display: none;
+    background: #0c1f3f;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 20px;
+    font-size: 15px;
+}
 
-    .warning {
-        margin-top: 25px;
-        font-size: 14px;
-        color: #facc15;
-    }
+.aff-box {
+    background: #2ecc71;
+    color: #000;
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 25px;
+    font-weight: bold;
+}
 
-    footer {
-        margin-top: 40px;
-        font-size: 13px;
-        color: #94a3b8;
-    }
+.aff-box a {
+    color: #000;
+    text-decoration: none;
+}
 
-    footer a {
-        color: #22c55e;
-        text-decoration: none;
-        margin: 0 6px;
-    }
+.warning {
+    margin-top: 20px;
+    color: #f1c40f;
+    font-size: 14px;
+}
+
+.footer {
+    margin-top: 30px;
+    font-size: 13px;
+    color: #aab3c5;
+}
+
+.footer a {
+    color: #2ecc71;
+    text-decoration: none;
+    margin: 0 5px;
+}
 </style>
 </head>
 
 <body>
 
-<h1>ScamOrSafe 🔍</h1>
-<p>Check a website or Telegram channel before you lose money.</p>
+<div class="container">
 
-<input id="siteInput" type="text" placeholder="Enter website or Telegram name" />
+<h1>ScamOrSafe 🔍</h1>
+<p class="subtitle">Check a website or Telegram channel before you lose money.</p>
+
+<input id="siteInput" placeholder="Enter website or Telegram name">
 
 <button onclick="checkSite()">Check now</button>
 
-<div class="vpn-box">
-    <p>Want extra protection? Use a trusted VPN and avoid scam trackers.</p>
+<div class="result" id="resultBox"></div>
 
-    <!-- 🔴 REPLACE THIS LINK WITH YOUR SURFSHARK AFFILIATE LINK -->
-    <a href="https://YOUR_SURFSHARK_AFFILIATE_LINK" target="_blank">
-        <button class="vpn-btn">🔒 Protect yourself with Surfshark VPN</button>
-    </a>
+<p class="subtitle" style="margin-top:20px;">
+Want extra protection? Use a trusted VPN and avoid scam trackers.
+</p>
+
+<div class="aff-box">
+🔒 <a href="YOUR_SURFSHARK_AFFILIATE_LINK" target="_blank" rel="nofollow sponsored">
+Protect yourself with Surfshark VPN
+</a>
 </div>
 
-<div class="warning">
-    ⚠️ This tool is for informational purposes only.  
-    Always verify information from multiple sources.
+<p class="warning">
+⚠️ This tool is for informational purposes only. Always verify information from multiple sources.
+</p>
+
+<div class="footer">
+<a href="#">Privacy</a> | 
+<a href="#">Terms</a> | 
+<a href="#">Contact</a>
+<br><br>
+Affiliate disclosure: Some links on this site may be affiliate links. We may earn a small commission at no extra cost to you.
 </div>
 
-<footer>
-    <div>
-        <a href="#">Privacy</a> |
-        <a href="#">Terms</a> |
-        <a href="#">Contact</a>
-    </div>
-    <p>
-        Affiliate disclosure: Some links on this site may be affiliate links.
-        We may earn a small commission at no extra cost to you.
-    </p>
-</footer>
+</div>
 
 <script>
 function checkSite() {
     const input = document.getElementById("siteInput").value.trim();
+    const box = document.getElementById("resultBox");
 
     if (input === "") {
         alert("Please enter a website or Telegram channel.");
         return;
     }
 
-    alert(
-        "⚠️ WARNING ⚠️\n\n" +
-        "This site or channel may be risky.\n\n" +
-        "Common scam signs:\n" +
-        "• Unrealistic promises\n" +
-        "• No verified company info\n" +
-        "• Pressure to invest fast\n\n" +
-        "Protect yourself online."
-    );
-
-    // 🔴 REPLACE WITH YOUR SURFSHARK AFFILIATE LINK
-    window.open("https://YOUR_SURFSHARK_AFFILIATE_LINK", "_blank");
+    box.style.display = "block";
+    box.innerHTML =
+        "🔍 Scan result for <b>" + input + "</b><br><br>" +
+        "⚠️ Potential risk detected<br><br>" +
+        "Common warning signs:<br>" +
+        "• No verified ownership<br>" +
+        "• Unrealistic promises<br>" +
+        "• Pressure tactics<br><br>" +
+        "Tip: Use a VPN and security tools before visiting unknown sites.";
 }
 </script>
 
