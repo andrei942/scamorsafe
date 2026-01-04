@@ -2,69 +2,97 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>ScamOrSafe – Check before you lose money</title>
-  <meta name="description" content="Check if a website, betting site or Telegram channel is scam or safe. Avoid losing money.">
+  <title>ScamOrSafe – Check Before You Lose Money</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-    header {
-      background: #111;
+      background: #0f172a;
       color: #fff;
-      padding: 30px 15px;
+      text-align: center;
+      padding: 40px;
     }
-    h1 span.scam { color: red; }
-    h1 span.safe { color: #00c853; }
-    main {
-      padding: 30px 15px;
+    .box {
+      max-width: 500px;
+      margin: auto;
+      background: #111827;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
     }
     input {
+      width: 90%;
       padding: 12px;
-      width: 80%;
-      max-width: 400px;
+      border-radius: 6px;
+      border: none;
+      margin-top: 15px;
       font-size: 16px;
     }
     button {
-      padding: 12px 20px;
-      margin-top: 10px;
+      margin-top: 15px;
+      padding: 12px 25px;
       font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      background: #22c55e;
+      color: #000;
       cursor: pointer;
     }
-    footer {
-      margin-top: 40px;
-      font-size: 14px;
-      color: #555;
+    button:hover {
+      background: #16a34a;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+    .warning {
+      color: #f87171;
+    }
+    .safe {
+      color: #4ade80;
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1><span class="scam">Scam</span>Or<span class="safe">Safe</span></h1>
-  <p>Check before you lose money</p>
-</header>
+  <div class="box">
+    <h1>ScamOrSafe 🔍</h1>
+    <p>Check a website or Telegram channel before you lose money.</p>
 
-<main>
-  <h2>Check a website or Telegram channel</h2>
-  <input type="text" placeholder="Enter website or Telegram link">
-  <br>
-  <button>Check now</button>
+    <input id="input" placeholder="Enter website or Telegram name">
+    <br>
+    <button onclick="check()">Check now</button>
 
-  <p style="margin-top:20px;">
-    ⚠️ This is an early version. Reports coming soon.
-  </p>
-</main>
+    <div class="result" id="result"></div>
+  </div>
 
-<footer>
-  <p>
-    ScamOrSafe.com provides risk analysis based on public information and user reports.
-  </p>
-</footer>
+  <script>
+    function check() {
+      const value = document.getElementById("input").value.toLowerCase();
+      const result = document.getElementById("result");
+
+      const knownScams = [
+        "live-bets24.com",
+        "guaranteed wins",
+        "vip betting",
+        "sure odds"
+      ];
+
+      if (!value) {
+        result.innerHTML = "<span class='warning'>Please enter something.</span>";
+        return;
+      }
+
+      for (let scam of knownScams) {
+        if (value.includes(scam)) {
+          result.innerHTML = "⚠️ <span class='warning'>High risk! This looks like a scam.</span>";
+          return;
+        }
+      }
+
+      result.innerHTML = "✅ <span class='safe'>No reports yet. Be careful and do your own research.</span>";
+    }
+  </script>
 
 </body>
 </html>
