@@ -1,165 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScamOrSafe – Check Websites & Telegram Scams</title>
 
-<title>ScamOrSafe – Check websites & Telegram channels</title>
+  <!-- SEO -->
+  <meta name="description" content="ScamOrSafe helps you check websites and Telegram channels to see if they are scams or legit before you lose money.">
 
-<meta name="description" content="Check if a website or Telegram channel is scam or safe before you lose money. Free scam checker tool.">
+  <!-- Google AdSense (REQUIRED – TOP / HEAD) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6071046177190782"
+     crossorigin="anonymous"></script>
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(180deg, #020b1d, #061733);
-    color: #ffffff;
-    text-align: center;
-}
+  <!-- Basic styling -->
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #0b1220, #020617);
+      color: #ffffff;
+      text-align: center;
+    }
 
-.container {
-    max-width: 420px;
-    margin: auto;
-    padding: 40px 20px;
-}
+    .container {
+      max-width: 420px;
+      margin: auto;
+      padding: 40px 20px;
+    }
 
-h1 {
-    font-size: 32px;
-    margin-bottom: 10px;
-}
+    h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
 
-.subtitle {
-    color: #cfd6e4;
-    font-size: 16px;
-    margin-bottom: 25px;
-}
+    p {
+      color: #cbd5e1;
+      font-size: 15px;
+    }
 
-input {
-    width: 100%;
-    padding: 14px;
-    border-radius: 8px;
-    border: none;
-    font-size: 16px;
-    margin-bottom: 15px;
-}
+    input {
+      width: 100%;
+      padding: 14px;
+      border-radius: 8px;
+      border: none;
+      font-size: 16px;
+      margin-top: 20px;
+    }
 
-button {
-    width: 100%;
-    padding: 15px;
-    background: #2ecc71;
-    color: #000;
-    border: none;
-    border-radius: 10px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-}
+    button {
+      width: 100%;
+      padding: 15px;
+      margin-top: 15px;
+      border-radius: 8px;
+      border: none;
+      background: #22c55e;
+      color: #000;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-button:hover {
-    opacity: 0.9;
-}
+    button:hover {
+      background: #16a34a;
+    }
 
-.result {
-    display: none;
-    background: #0c1f3f;
-    border-radius: 10px;
-    padding: 15px;
-    margin-top: 20px;
-    font-size: 15px;
-}
+    .affiliate {
+      background: #22c55e;
+      color: #000;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 25px;
+      font-weight: bold;
+    }
 
-.aff-box {
-    background: #2ecc71;
-    color: #000;
-    padding: 15px;
-    border-radius: 12px;
-    margin-top: 25px;
-    font-weight: bold;
-}
+    .warning {
+      margin-top: 20px;
+      font-size: 13px;
+      color: #facc15;
+    }
 
-.aff-box a {
-    color: #000;
-    text-decoration: none;
-}
+    footer {
+      margin-top: 40px;
+      font-size: 13px;
+      color: #94a3b8;
+    }
 
-.warning {
-    margin-top: 20px;
-    color: #f1c40f;
-    font-size: 14px;
-}
-
-.footer {
-    margin-top: 30px;
-    font-size: 13px;
-    color: #aab3c5;
-}
-
-.footer a {
-    color: #2ecc71;
-    text-decoration: none;
-    margin: 0 5px;
-}
-</style>
+    footer a {
+      color: #22c55e;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="container">
+    <h1>ScamOrSafe 🔍</h1>
+    <p>Check a website or Telegram channel before you lose money.</p>
 
-<div class="container">
+    <input type="text" placeholder="Enter website or Telegram name">
 
-<h1>ScamOrSafe 🔍</h1>
-<p class="subtitle">Check a website or Telegram channel before you lose money.</p>
+    <button>Check now</button>
 
-<input id="siteInput" placeholder="Enter website or Telegram name">
+    <p style="margin-top:15px;">
+      Want extra protection? Use a trusted VPN and avoid scam trackers.
+    </p>
 
-<button onclick="checkSite()">Check now</button>
+    <!-- Affiliate CTA -->
+    <div class="affiliate">
+      🔒 Protect yourself with Surfshark VPN
+    </div>
 
-<div class="result" id="resultBox"></div>
+    <!-- Disclaimer -->
+    <div class="warning">
+      ⚠️ This tool is for informational purposes only. Always verify information from multiple sources.
+    </div>
 
-<p class="subtitle" style="margin-top:20px;">
-Want extra protection? Use a trusted VPN and avoid scam trackers.
-</p>
-
-<div class="aff-box">
-🔒 <a href="YOUR_SURFSHARK_AFFILIATE_LINK" target="_blank" rel="nofollow sponsored">
-Protect yourself with Surfshark VPN
-</a>
-</div>
-
-<p class="warning">
-⚠️ This tool is for informational purposes only. Always verify information from multiple sources.
-</p>
-
-<div class="footer">
-<a href="#">Privacy</a> | 
-<a href="#">Terms</a> | 
-<a href="#">Contact</a>
-<br><br>
-Affiliate disclosure: Some links on this site may be affiliate links. We may earn a small commission at no extra cost to you.
-</div>
-
-</div>
-
-<script>
-function checkSite() {
-    const input = document.getElementById("siteInput").value.trim();
-    const box = document.getElementById("resultBox");
-
-    if (input === "") {
-        alert("Please enter a website or Telegram channel.");
-        return;
-    }
-
-    box.style.display = "block";
-    box.innerHTML =
-        "🔍 Scan result for <b>" + input + "</b><br><br>" +
-        "⚠️ Potential risk detected<br><br>" +
-        "Common warning signs:<br>" +
-        "• No verified ownership<br>" +
-        "• Unrealistic promises<br>" +
-        "• Pressure tactics<br><br>" +
-        "Tip: Use a VPN and security tools before visiting unknown sites.";
-}
-</script>
-
+    <!-- Footer -->
+    <footer>
+      <p>
+        <a href="#">Privacy</a> |
+        <a href="#">Terms</a> |
+        <a href="#">Contact</a>
+      </p>
+      <p>
+        Affiliate disclosure: Some links on this site may be affiliate links.
+        We may earn a small commission at no extra cost to you.
+      </p>
+      <p>© 2026 ScamOrSafe</p>
+    </footer>
+  </div>
 </body>
 </html>
