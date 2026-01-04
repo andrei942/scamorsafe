@@ -2,27 +2,47 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>ScamOrSafe – Scam Awareness & Protection</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Google AdSense -->
-  <script async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6071046177190782"
-    crossorigin="anonymous"></script>
-
+  <title>ScamOrSafe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
-<h1>ScamOrSafe</h1>
-<p>ScamOrSafe helps users identify online scams, fake giveaways, and fraudulent schemes.</p>
+<h1>ScamOrSafe 🔍</h1>
+<p>Check a website or Telegram channel before you lose money.</p>
+
+<input type="text" id="checkInput" placeholder="Enter website or Telegram name">
+<br><br>
+<button onclick="checkScam()">Check now</button>
+
+<p id="result"></p>
+
+<hr>
 
 <ul>
-  <li><a href="crypto-giveaway-scam.html">Crypto Giveaway Scams</a></li>
-  <li><a href="telegram-betting-scam.html">Telegram Betting Scams</a></li>
+  <li><a href="crypto-giveaway-scams.html">Crypto Giveaway Scams</a></li>
+  <li><a href="telegram-betting-scams.html">Telegram Betting Scams</a></li>
   <li><a href="privacy.html">Privacy Policy</a></li>
   <li><a href="terms.html">Terms of Service</a></li>
   <li><a href="contact.html">Contact</a></li>
 </ul>
+
+<script>
+function checkScam() {
+  const value = document.getElementById("checkInput").value.toLowerCase();
+  const result = document.getElementById("result");
+
+  if (!value) {
+    result.textContent = "Please enter a website or Telegram name.";
+    return;
+  }
+
+  if (value.includes("giveaway") || value.includes("bet") || value.includes("profit")) {
+    result.textContent = "⚠️ Warning: This looks like a possible scam. Be careful.";
+  } else {
+    result.textContent = "✅ No common scam signals detected. Always verify carefully.";
+  }
+}
+</script>
 
 </body>
 </html>
