@@ -99,43 +99,46 @@
   </div>
 
   <script>
-    function check() {
-      let value = document.getElementById("input").value;
-      const result = document.getElementById("result");
+function check() {
+  const input = document.getElementById("input").value.toLowerCase().trim();
+  const result = document.getElementById("result");
 
-      if (!value.trim()) {
-        result.innerHTML = "⚠️ Please enter a website or name.";
-        result.className = "result warning";
-        return;
-      }
+  if (!input) {
+    result.innerHTML = "⚠️ Please enter a website or name.";
+    result.className = "result warning";
+    return;
+  }
 
-      // Normalize input
-      value = value
-        .toLowerCase()
-        .replace("https://", "")
-        .replace("http://", "")
-        .replace("www.", "")
-        .split("/")[0];
+  // REAL scam indicators & known scams
+  const scamDatabase = [
+    "live-bets24.com",
+    "guaranteed wins",
+    "vip betting",
+    "sure odds",
+    "telegram tipster",
+    "double your money",
+    "investment guarantee",
+    "crypto giveaway",
+    "send 1 btc get 2",
+    "forex signals",
+    "binary options",
+    "risk free profit",
+    "elon musk giveaway"
+  ];
 
-      const knownScams = [
-        "live-bets24.com",
-        "guaranteed wins",
-        "vip betting",
-        "sure bets",
-        "fixed matches"
-      ];
+  const isScam = scamDatabase.some(scam =>
+    input.includes(scam)
+  );
 
-      const isScam = knownScams.some(item => value.includes(item));
-
-      if (isScam) {
-        result.innerHTML = "⚠️ High risk! This looks like a scam.";
-        result.className = "result warning";
-      } else {
-        result.innerHTML = "✅ No reports yet. Be careful and do your own research.";
-        result.className = "result safe";
-      }
-    }
-  </script>
+  if (isScam) {
+    result.innerHTML = "⚠️ <strong>High risk!</strong> This looks like a known scam pattern.";
+    result.className = "result warning";
+  } else {
+    result.innerHTML = "✅ No reports yet. Be careful and do your own research.";
+    result.className = "result safe";
+  }
+}
+</script>
 
 </body>
 </html>
