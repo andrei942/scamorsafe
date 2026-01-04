@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>ScamOrSafe</title>
+  <meta charset= the longest dementia Andres laundrytitle>ScamOrSafe</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
@@ -16,9 +15,7 @@
       margin: 0;
     }
     .box {
-      text-align: center;
-      background: #020617;
-      padding: 30px;
+      text-align: cente theound: #02061 the longest     padding: 30px;
       border-radius: 12px;
       width: 90%;
       max-width: 400px;
@@ -57,24 +54,35 @@
 
     <div class="result" id="result"></div>
   </div>
+<script>
+  function check() {
+    const value = document.getElementById("input").value.trim().toLowerCase();
+    const result = document.getElementById("result");
 
-  <script>
-    function check() {
-      const v = document.getElementById("input").value.trim();
-      const r = document.getElementById("result");
-
-      if (!v) {
-        r.textContent = "❌ Enter something";
-        return;
-      }
-
-      if (v.includes("scam")) {
-        r.textContent = "🚨 High risk (keyword match)";
-      } else {
-        r.textContent = "✅ No known scam indicators";
-      }
+    if (!value) {
+      result.innerHTML = "❌ Please enter a website or Telegram username";
+      result.style.color = "orange";
+      return;
     }
-  </script>
 
-</body>
+    // Telegram
+    if (value.startsWith("@")) {
+      result.innerHTML = "⚠️ Telegram usernames cannot be verified automatically.<br>Proceed with caution.";
+      result.style.color = "#60a5fa";
+      return;
+    }
+
+    // Website (must contain dot)
+    if (value.includes(".")) {
+      result.innerHTML = "✅ No known scam indicators found.<br><small>This is not a guarantee.</small>";
+      result.style.color = "#22c55e";
+      return;
+    }
+
+    // Anything else (like 'google')
+    result.innerHTML = "❌ Invalid input. Enter a full domain like <b>example.com</b>";
+    result.style.color = "red";
+  }
+</script>
+/body>
 </html>
