@@ -2,8 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>ScamOrSafe – Check before you lose money</title>
+
+  <title>Is It a Scam? ScamOrSafe – Check Websites & Telegram</title>
+
+  <meta name="description" content="Check if a website or Telegram channel is a scam. ScamOrSafe helps you avoid betting, crypto, and investment scams.">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google AdSense (ACTIVATE AFTER APPROVAL) -->
+  <!--
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXX"
+  crossorigin="anonymous"></script>
+  -->
 
   <style>
     body {
@@ -14,27 +24,26 @@
       justify-content: center;
       background: radial-gradient(circle at top, #0f172a, #020617);
       font-family: Arial, sans-serif;
-      color: #fff;
+      color: #ffffff;
     }
 
     .box {
-      background: rgba(15, 23, 42, 0.85);
+      background: rgba(15, 23, 42, 0.9);
       padding: 30px;
       border-radius: 16px;
       width: 90%;
       max-width: 420px;
       text-align: center;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
     }
 
     h1 {
-      margin-bottom: 10px;
+      margin-top: 0;
       font-size: 28px;
     }
 
     p {
       color: #cbd5f5;
-      margin-bottom: 20px;
     }
 
     input {
@@ -44,7 +53,7 @@
       border: none;
       font-size: 16px;
       outline: none;
-      margin-bottom: 15px;
+      margin-top: 15px;
     }
 
     button {
@@ -57,6 +66,7 @@
       cursor: pointer;
       background: #22c55e;
       color: #052e16;
+      margin-top: 15px;
     }
 
     button:hover {
@@ -77,85 +87,130 @@
       color: #f87171;
     }
 
+    .affiliate {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #cbd5f5;
+    }
+
     .disclaimer {
       margin-top: 15px;
       font-size: 12px;
       color: #94a3b8;
+    }
+
+    footer {
+      margin-top: 25px;
+      font-size: 13px;
+    }
+
+    footer a {
+      color: #4ade80;
+      text-decoration: none;
+      margin: 0 5px;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="box">
-    <h1>ScamOrSafe 🔍</h1>
-    <p>Check a website or Telegram channel before you lose money.</p>
+<div class="box">
+  <h1>ScamOrSafe 🔍</h1>
+  <p>Check a website or Telegram channel before you lose money.</p>
 
-    <input id="input" placeholder="Enter website or name">
-    <button onclick="check()">Check now</button>
+  <input id="input" placeholder="Enter website or Telegram name">
+  <button onclick="check()">Check now</button>
 
-    <div id="result" class="result"></div>
+  <div id="result" class="result"></div>
 
-    <div class="disclaimer">
-      ⚠️ This tool is for informational purposes only. Always verify information yourself.
-    </div>
+  <!-- AdSense location (ACTIVATE AFTER APPROVAL) -->
+  <!--
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXX"
+       data-ad-slot="1234567890"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+  -->
+
+  <div class="affiliate">
+    Want extra protection? Use a trusted VPN and avoid scam trackers.
   </div>
 
-  <script>
-    function check() {
-      const value = document.getElementById("input").value.toLowerCase().trim();
-      const result = document.getElementById("result");
+  <div class="disclaimer">
+    ⚠️ This tool is for informational purposes only.  
+    Results are based on known scam patterns and reports.  
+    Always verify information from multiple sources.
+  </div>
 
-      if (!value) {
-        result.innerHTML = "";
-        result.className = "result";
-        return;
-      }
+  <footer>
+    <a href="privacy.html">Privacy</a> |
+    <a href="terms.html">Terms</a> |
+    <a href="contact.html">Contact</a>
+  </footer>
+</div>
 
-      // Known scam patterns (real-world examples)
-      const scamPatterns = [
-        "live-bets24",
-        "guaranteed wins",
-        "vip betting",
-        "send 1 get 2",
-        "double your crypto",
-        "telegram tipster",
-        "investment signal",
-        "free usdt",
-        "airdrop claim",
-        "whatsapp trader"
-      ];
+<script>
+function check() {
+  let value = document.getElementById("input").value.trim().toLowerCase();
+  const result = document.getElementById("result");
 
-      // Known safe domains
-      const safeDomains = [
-        "binance.com",
-        "google.com",
-        "apple.com",
-        "amazon.com",
-        "facebook.com"
-      ];
+  if (!value) {
+    result.innerHTML = "";
+    result.className = "result";
+    return;
+  }
 
-      if (safeDomains.some(d => value.includes(d))) {
-        result.innerHTML = "✅ No reports yet. Be careful and do your own research.";
-        result.className = "result safe";
-        return;
-      }
+  // Normalize input
+  value = value
+    .replace("https://", "")
+    .replace("http://", "")
+    .replace("www.", "")
+    .split("/")[0];
 
-      if (scamPatterns.some(p => value.includes(p))) {
-        result.innerHTML = "⚠️ High risk! This looks like a scam.";
-        result.className = "result warning";
-        return;
-      }
+  // REAL scam patterns (based on real reports)
+  const scamPatterns = [
+    "live-bets24",
+    "guaranteed wins",
+    "vip betting",
+    "telegram tipster",
+    "send 1 get 2",
+    "double your crypto",
+    "free usdt",
+    "airdrop claim",
+    "investment signal",
+    "whatsapp trader",
+    "risk free profit"
+  ];
 
-      result.innerHTML = "✅ No reports yet. Be careful and do your own research.";
-      result.className = "result safe";
-    }
-  </script>
+  // Known safe domains
+  const safeDomains = [
+    "binance.com",
+    "google.com",
+    "apple.com",
+    "amazon.com",
+    "facebook.com"
+  ];
+
+  if (safeDomains.some(d => value.includes(d))) {
+    result.innerHTML = "✅ No reports yet. Be careful and do your own research.";
+    result.className = "result safe";
+    return;
+  }
+
+  if (scamPatterns.some(p => value.includes(p))) {
+    result.innerHTML = "⚠️ High risk! This matches common scam patterns.";
+    result.className = "result warning";
+    return;
+  }
+
+  result.innerHTML = "✅ No reports yet. Be careful and do your own research.";
+  result.className = "result safe";
+}
+</script>
 
 </body>
 </html>
-<footer style="margin-top:30px; font-size:14px;">
-<a href="privacy.html">Privacy Policy</a> |
-<a href="terms.html">Terms of Service</a> |
-<a href="contact.html">Contact</a>
-</footer>
