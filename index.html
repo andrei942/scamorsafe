@@ -1,216 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <title>ScamOrSafe – Check Websites & Telegram Channels</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Check if a website or Telegram channel is a scam or safe. Free tool to avoid crypto, betting, and investment scams.">
 
-  <title>Is It a Scam? ScamOrSafe – Check Websites & Telegram</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b132b;
+            color: #ffffff;
+            text-align: center;
+        }
 
-  <meta name="description" content="Check if a website or Telegram channel is a scam. ScamOrSafe helps you avoid betting, crypto, and investment scams.">
+        .container {
+            max-width: 420px;
+            margin: auto;
+            padding: 40px 20px;
+        }
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
 
-  <!-- Google AdSense (ACTIVATE AFTER APPROVAL) -->
-  <!--
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXX"
-  crossorigin="anonymous"></script>
-  -->
+        p {
+            color: #cbd5e1;
+            font-size: 15px;
+        }
 
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: radial-gradient(circle at top, #0f172a, #020617);
-      font-family: Arial, sans-serif;
-      color: #ffffff;
-    }
+        input {
+            width: 100%;
+            padding: 14px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+            margin-top: 20px;
+        }
 
-    .box {
-      background: rgba(15, 23, 42, 0.9);
-      padding: 30px;
-      border-radius: 16px;
-      width: 90%;
-      max-width: 420px;
-      text-align: center;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-    }
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #22c55e;
+            color: #000;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            margin-top: 15px;
+            cursor: pointer;
+        }
 
-    h1 {
-      margin-top: 0;
-      font-size: 28px;
-    }
+        button:hover {
+            background: #16a34a;
+        }
 
-    p {
-      color: #cbd5f5;
-    }
+        .vpn-box {
+            margin-top: 25px;
+            font-size: 14px;
+            color: #9ca3af;
+        }
 
-    input {
-      width: 100%;
-      padding: 14px;
-      border-radius: 8px;
-      border: none;
-      font-size: 16px;
-      outline: none;
-      margin-top: 15px;
-    }
+        .warning {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #94a3b8;
+        }
 
-    button {
-      width: 100%;
-      padding: 14px;
-      border-radius: 8px;
-      border: none;
-      font-size: 18px;
-      font-weight: bold;
-      cursor: pointer;
-      background: #22c55e;
-      color: #052e16;
-      margin-top: 15px;
-    }
+        footer {
+            margin-top: 40px;
+            font-size: 12px;
+            color: #9ca3af;
+        }
 
-    button:hover {
-      background: #16a34a;
-    }
-
-    .result {
-      margin-top: 20px;
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    .safe {
-      color: #4ade80;
-    }
-
-    .warning {
-      color: #f87171;
-    }
-
-    .affiliate {
-      margin-top: 15px;
-      font-size: 14px;
-      color: #cbd5f5;
-    }
-
-    .disclaimer {
-      margin-top: 15px;
-      font-size: 12px;
-      color: #94a3b8;
-    }
-
-    footer {
-      margin-top: 25px;
-      font-size: 13px;
-    }
-
-    footer a {
-      color: #4ade80;
-      text-decoration: none;
-      margin: 0 5px;
-    }
-  </style>
+        footer a {
+            color: #22c55e;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="box">
-  <h1>ScamOrSafe 🔍</h1>
-  <p>Check a website or Telegram channel before you lose money.</p>
+<div class="container">
+    <h1>ScamOrSafe 🔍</h1>
+    <p>Check a website or Telegram channel before you lose money.</p>
 
-  <input id="input" placeholder="Enter website or Telegram name">
-  <button onclick="check()">Check now</button>
+    <input type="text" placeholder="Enter website or Telegram name">
 
-  <div id="result" class="result"></div>
+    <button>Check now</button>
 
-  <!-- AdSense location (ACTIVATE AFTER APPROVAL) -->
-  <!--
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-XXXXXXXXXXXX"
-       data-ad-slot="1234567890"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-  -->
+    <div class="vpn-box">
+        Want extra protection? Use a trusted VPN and avoid scam trackers.
+    </div>
 
-  <div class="affiliate">
-    Want extra protection? Use a trusted VPN and avoid scam trackers.
-  </div>
+    <div class="warning">
+        ⚠️ This tool is for informational purposes only. Results are based on known scam patterns and reports. Always verify information from multiple sources.
+    </div>
 
-  <div class="disclaimer">
-    ⚠️ This tool is for informational purposes only.  
-    Results are based on known scam patterns and reports.  
-    Always verify information from multiple sources.
-  </div>
+    <footer>
+        <div style="margin-bottom:10px;">
+            <a href="#">Privacy</a> |
+            <a href="#">Terms</a> |
+            <a href="#">Contact</a>
+        </div>
 
-  <footer>
-    <a href="privacy.html">Privacy</a> |
-    <a href="terms.html">Terms</a> |
-    <a href="contact.html">Contact</a>
-  </footer>
+        <div>
+            Affiliate disclosure: Some links on this site may be affiliate links.
+            We may earn a small commission at no extra cost to you.
+        </div>
+    </footer>
 </div>
-
-<script>
-function check() {
-  let value = document.getElementById("input").value.trim().toLowerCase();
-  const result = document.getElementById("result");
-
-  if (!value) {
-    result.innerHTML = "";
-    result.className = "result";
-    return;
-  }
-
-  // Normalize input
-  value = value
-    .replace("https://", "")
-    .replace("http://", "")
-    .replace("www.", "")
-    .split("/")[0];
-
-  // REAL scam patterns (based on real reports)
-  const scamPatterns = [
-    "live-bets24",
-    "guaranteed wins",
-    "vip betting",
-    "telegram tipster",
-    "send 1 get 2",
-    "double your crypto",
-    "free usdt",
-    "airdrop claim",
-    "investment signal",
-    "whatsapp trader",
-    "risk free profit"
-  ];
-
-  // Known safe domains
-  const safeDomains = [
-    "binance.com",
-    "google.com",
-    "apple.com",
-    "amazon.com",
-    "facebook.com"
-  ];
-
-  if (safeDomains.some(d => value.includes(d))) {
-    result.innerHTML = "✅ No reports yet. Be careful and do your own research.";
-    result.className = "result safe";
-    return;
-  }
-
-  if (scamPatterns.some(p => value.includes(p))) {
-    result.innerHTML = "⚠️ High risk! This matches common scam patterns.";
-    result.className = "result warning";
-    return;
-  }
-
-  result.innerHTML = "✅ No reports yet. Be careful and do your own research.";
-  result.className = "result safe";
-}
-</script>
 
 </body>
 </html>
