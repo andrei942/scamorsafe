@@ -1,119 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>ScamOrSafe – Check Websites & Telegram Channels</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Check if a website or Telegram channel is a scam or safe. Free tool to avoid crypto, betting, and investment scams.">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ScamOrSafe</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: #0b132b;
-            color: #ffffff;
-            text-align: center;
-        }
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(180deg, #0b1220, #020617);
+        color: #ffffff;
+        text-align: center;
+        padding: 30px 15px;
+    }
 
-        .container {
-            max-width: 420px;
-            margin: auto;
-            padding: 40px 20px;
-        }
+    h1 {
+        font-size: 34px;
+        margin-bottom: 10px;
+    }
 
-        h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
+    p {
+        color: #cbd5e1;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
 
-        p {
-            color: #cbd5e1;
-            font-size: 15px;
-        }
+    input {
+        width: 100%;
+        max-width: 420px;
+        padding: 14px;
+        border-radius: 10px;
+        border: none;
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
 
-        input {
-            width: 100%;
-            padding: 14px;
-            border-radius: 8px;
-            border: none;
-            font-size: 16px;
-            margin-top: 20px;
-        }
+    button {
+        width: 100%;
+        max-width: 420px;
+        padding: 14px;
+        border-radius: 10px;
+        border: none;
+        font-size: 18px;
+        font-weight: bold;
+        background: #22c55e;
+        color: #000;
+        cursor: pointer;
+    }
 
-        button {
-            width: 100%;
-            padding: 14px;
-            background: #22c55e;
-            color: #000;
-            font-size: 18px;
-            font-weight: bold;
-            border: none;
-            border-radius: 8px;
-            margin-top: 15px;
-            cursor: pointer;
-        }
+    button:hover {
+        opacity: 0.9;
+    }
 
-        button:hover {
-            background: #16a34a;
-        }
+    .vpn-box {
+        margin-top: 30px;
+        font-size: 15px;
+    }
 
-        .vpn-box {
-            margin-top: 25px;
-            font-size: 14px;
-            color: #9ca3af;
-        }
+    .vpn-btn {
+        margin-top: 10px;
+        background: #22c55e;
+        color: #000;
+    }
 
-        .warning {
-            margin-top: 30px;
-            font-size: 12px;
-            color: #94a3b8;
-        }
+    .warning {
+        margin-top: 25px;
+        font-size: 14px;
+        color: #facc15;
+    }
 
-        footer {
-            margin-top: 40px;
-            font-size: 12px;
-            color: #9ca3af;
-        }
+    footer {
+        margin-top: 40px;
+        font-size: 13px;
+        color: #94a3b8;
+    }
 
-        footer a {
-            color: #22c55e;
-            text-decoration: none;
-            margin: 0 8px;
-        }
-    </style>
+    footer a {
+        color: #22c55e;
+        text-decoration: none;
+        margin: 0 6px;
+    }
+</style>
 </head>
 
 <body>
 
-<div class="container">
-    <h1>ScamOrSafe 🔍</h1>
-    <p>Check a website or Telegram channel before you lose money.</p>
+<h1>ScamOrSafe 🔍</h1>
+<p>Check a website or Telegram channel before you lose money.</p>
 
-    <input type="text" placeholder="Enter website or Telegram name">
+<input id="siteInput" type="text" placeholder="Enter website or Telegram name" />
 
-    <button onclick="checkSite()">Check now</button>
+<button onclick="checkSite()">Check now</button>
 
-    <div class="vpn-box">
-        Want extra protection? Use a trusted VPN and avoid scam trackers.
-    </div>
+<div class="vpn-box">
+    <p>Want extra protection? Use a trusted VPN and avoid scam trackers.</p>
 
-    <div class="warning">
-        ⚠️ This tool is for informational purposes only. Results are based on known scam patterns and reports. Always verify information from multiple sources.
-    </div>
-
-    <footer>
-        <div style="margin-bottom:10px;">
-            <a href="#">Privacy</a> |
-            <a href="#">Terms</a> |
-            <a href="#">Contact</a>
-        </div>
-
-        <div>
-            Affiliate disclosure: Some links on this site may be affiliate links.
-            We may earn a small commission at no extra cost to you.
-        </div>
-    </footer>
+    <!-- 🔴 REPLACE THIS LINK WITH YOUR SURFSHARK AFFILIATE LINK -->
+    <a href="https://YOUR_SURFSHARK_AFFILIATE_LINK" target="_blank">
+        <button class="vpn-btn">🔒 Protect yourself with Surfshark VPN</button>
+    </a>
 </div>
+
+<div class="warning">
+    ⚠️ This tool is for informational purposes only.  
+    Always verify information from multiple sources.
+</div>
+
+<footer>
+    <div>
+        <a href="#">Privacy</a> |
+        <a href="#">Terms</a> |
+        <a href="#">Contact</a>
+    </div>
+    <p>
+        Affiliate disclosure: Some links on this site may be affiliate links.
+        We may earn a small commission at no extra cost to you.
+    </p>
+</footer>
+
+<script>
+function checkSite() {
+    const input = document.getElementById("siteInput").value.trim();
+
+    if (input === "") {
+        alert("Please enter a website or Telegram channel.");
+        return;
+    }
+
+    alert(
+        "⚠️ WARNING ⚠️\n\n" +
+        "This site or channel may be risky.\n\n" +
+        "Common scam signs:\n" +
+        "• Unrealistic promises\n" +
+        "• No verified company info\n" +
+        "• Pressure to invest fast\n\n" +
+        "Protect yourself online."
+    );
+
+    // 🔴 REPLACE WITH YOUR SURFSHARK AFFILIATE LINK
+    window.open("https://YOUR_SURFSHARK_AFFILIATE_LINK", "_blank");
+}
+</script>
 
 </body>
 </html>
