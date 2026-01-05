@@ -2,11 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>ScamOrSafe – Check Before You Lose Money</title>
+  <title>ScamOrSafe – Check Before You Trust</title>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ScamOrSafe helps you check websites and Telegram names for scam indicators.">
-  <meta name="keywords" content="scam check, website scam, telegram scam, crypto scam">
+  <meta name="description" content="ScamOrSafe helps you check websites, crypto offers, Telegram groups, and online services before you trust them.">
+  <meta name="keywords" content="scam check, scam or safe, crypto scam, telegram scam, website scam">
   <meta name="author" content="ScamOrSafe">
+
+  <!-- Google AdSense (REQUIRED) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6071046177190782"
+    crossorigin="anonymous"></script>
 
   <style>
     * {
@@ -16,151 +21,122 @@
 
     body {
       margin: 0;
-      min-height: 100vh;
-      background: linear-gradient(180deg, #0b1020, #050814);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #fff;
+      background: #f5f7fa;
+      color: #333;
     }
 
-    .card {
-      background: #0f172a;
-      padding: 30px;
-      border-radius: 16px;
-      width: 90%;
-      max-width: 420px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    header {
+      background: #0d47a1;
+      color: white;
+      padding: 20px;
       text-align: center;
     }
 
-    h1 {
-      margin-bottom: 10px;
-      font-size: 28px;
+    nav {
+      margin-top: 10px;
     }
 
-    p {
-      color: #cbd5e1;
-      margin-bottom: 20px;
+    nav a {
+      color: #bbdefb;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
     }
 
-    input {
-      width: 100%;
-      padding: 14px;
-      border-radius: 10px;
-      border: none;
-      outline: none;
+    main {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1, h2 {
+      color: #0d47a1;
+    }
+
+    .search-box {
+      margin: 20px 0;
+      display: flex;
+      gap: 10px;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 10px;
       font-size: 16px;
-      margin-bottom: 15px;
     }
 
     button {
-      width: 100%;
-      padding: 14px;
-      border-radius: 10px;
+      padding: 10px 20px;
+      background: #0d47a1;
+      color: white;
       border: none;
-      font-size: 18px;
-      font-weight: bold;
-      background: #22c55e;
-      color: #03210f;
       cursor: pointer;
+      border-radius: 4px;
     }
 
     button:hover {
-      background: #16a34a;
+      background: #08306b;
     }
 
-    .result {
-      margin-top: 20px;
-      padding: 15px;
-      border-radius: 10px;
-      display: none;
-      font-weight: bold;
-    }
-
-    .safe {
-      background: #052e16;
-      color: #4ade80;
-    }
-
-    .warning {
-      background: #3f1d0b;
-      color: #fb923c;
-    }
-
-    .danger {
-      background: #450a0a;
-      color: #f87171;
-    }
-
-    .score {
-      margin-top: 10px;
+    footer {
+      text-align: center;
+      padding: 20px;
       font-size: 14px;
-      color: #e5e7eb;
+      color: #777;
+    }
+
+    footer a {
+      color: #0d47a1;
+      text-decoration: none;
+      margin: 0 5px;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="card">
-    <h1>ScamOrSafe 🔍</h1>
-    <p>Check a website or Telegram name</p>
+<header>
+  <h1>ScamOrSafe</h1>
+  <p>Check before you trust</p>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
 
-    <input id="input" placeholder="example.com or @telegram">
-    <button onclick="checkScam()">Check now</button>
+<main>
+  <h2>Check if something is a scam</h2>
+  <p>Paste a website, crypto project, Telegram group, or online offer below.</p>
 
-    <div id="result" class="result"></div>
-    <div id="score" class="score"></div>
+  <div class="search-box">
+    <input type="text" placeholder="example.com or Telegram group name">
+    <button>Check</button>
   </div>
 
-<script>
-function checkScam() {
-  const input = document.getElementById("input").value.toLowerCase();
-  const result = document.getElementById("result");
-  const score = document.getElementById("score");
+  <h2>Popular Scam Types</h2>
+  <ul>
+    <li>Crypto giveaway scams</li>
+    <li>Telegram betting scams</li>
+    <li>Fake investment platforms</li>
+    <li>Phishing websites</li>
+  </ul>
 
-  if (!input) {
-    result.style.display = "block";
-    result.className = "result warning";
-    result.innerText = "⚠️ Please enter a website or Telegram name";
-    score.innerText = "";
-    return;
-  }
+  <p>
+    This website provides informational content only. Always do your own research.
+  </p>
+</main>
 
-  const scamKeywords = [
-    "free", "giveaway", "airdrop", "bonus",
-    "double", "crypto", "btc", "eth",
-    "investment", "profit", "guaranteed"
-  ];
-
-  let risk = 0;
-  scamKeywords.forEach(word => {
-    if (input.includes(word)) risk += 15;
-  });
-
-  if (input.startsWith("@")) risk += 20;
-  if (input.includes("-")) risk += 10;
-  if (input.length < 6) risk += 10;
-
-  if (risk > 100) risk = 100;
-
-  result.style.display = "block";
-
-  if (risk < 30) {
-    result.className = "result safe";
-    result.innerText = "✅ No known scam indicators";
-  } else if (risk < 60) {
-    result.className = "result warning";
-    result.innerText = "⚠️ Suspicious – be careful";
-  } else {
-    result.className = "result danger";
-    result.innerText = "🚨 High scam risk detected";
-  }
-
-  score.innerText = "Risk score: " + risk + "%";
-}
-</script>
+<footer>
+  © 2026 ScamOrSafe |
+  <a href="privacy.html">Privacy Policy</a> |
+  <a href="terms.html">Terms</a> |
+  <a href="contact.html">Contact</a>
+</footer>
 
 </body>
 </html>
